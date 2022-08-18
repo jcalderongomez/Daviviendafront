@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Acutalizar Datos Del Producto</h2>
+
+<mat-dialog-content [formGroup]="form">
+    <mat-form-field class="crear-producto-field">
+        <input matInput placeholder = "Nombre del producto" formControlName="nombre">    
+    </mat-form-field>
+    <br>
+    <mat-form-field class="crear-producto-field">
+        <input matInput placeholder = "Precio del producto" formControlName="precio">    
+    </mat-form-field>
+    <br>
+    <mat-form-field class="crear-producto-field">
+        <input matInput placeholder = "Stock del producto" formControlName="stock">    
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Seleccione el proveedor</mat-label>
+        <mat-select formControlName="proveedorId"  class="form-control">
+            <mat-option *ngFor="let item of resultados" [value]="item.id">{{item.nombre}}</mat-option>
+        </mat-select>
+    </mat-form-field>    
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button" (click)='cerrar()'>Cerrar</button>
+    <button class="mat-raised-button mat-primary" (click)='guardar()'>Guardar</button>
+</mat-dialog-actions>

@@ -1,0 +1,43 @@
+<button mat-raised-button color="accent" mat-button routerLink="/cliente/agregar">Agregar Cliente</button>
+
+<table mat-table [dataSource]="resultados" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+        
+    <ng-container matColumnDef="cedula">
+        <th mat-header-cell *matHeaderCellDef> CÉDULA. </th>
+        <td mat-cell *matCellDef="let element"> {{element.cedula}} </td>
+    </ng-container>
+      
+    <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> NOMBRE </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="apellido">
+      <th mat-header-cell *matHeaderCellDef> APELLIDO </th>
+      <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
+</ng-container>
+
+<ng-container matColumnDef="direccion">
+      <th mat-header-cell *matHeaderCellDef>DIRECCION </th>
+      <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
+  </ng-container>
+    <ng-container matColumnDef="telefono">
+        <th mat-header-cell *matHeaderCellDef> TELEFONO </th>
+        <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="accion">
+      <th mat-header-cell *matHeaderCellDef> ACCI&Oacute;N</th>
+      <td mat-cell *matCellDef="let element"> 
+        <button (click)="actualizarCliente(element)"  mat-raised-button color="primary"><mat-icon>edit</mat-icon></button> 
+        <button [routerLink]="['/cliente/eliminar', element.id]"  mat-raised-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+      </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

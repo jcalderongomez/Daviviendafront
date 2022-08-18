@@ -1,0 +1,39 @@
+<button mat-raised-button color="accent" mat-button routerLink="/ventas/agregar">Agregar Venta</button>
+
+<table mat-table [dataSource]="resultados" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef> FECHA. </th>
+        <td mat-cell *matCellDef="let element"> {{element.fechaVenta}} </td>
+    </ng-container>
+      
+    <ng-container matColumnDef="cliente">
+        <th mat-header-cell *matHeaderCellDef> CLIENTE. </th>
+        <td mat-cell *matCellDef="let element"> {{element.cliente.nombre}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="producto">
+        <th mat-header-cell *matHeaderCellDef> PRODUCTO. </th>
+        <td mat-cell *matCellDef="let element"> {{element.producto.nombre}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="descuento">
+        <th mat-header-cell *matHeaderCellDef> DESCUENTO. </th>
+        <td mat-cell *matCellDef="let element"> {{element.descuento}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef> TOTAL. </th>
+        <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+    </ng-container>
+    <ng-container matColumnDef="accion">
+        <th mat-header-cell *matHeaderCellDef> ACCI&Oacute;N</th>
+      </ng-container>
+      
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

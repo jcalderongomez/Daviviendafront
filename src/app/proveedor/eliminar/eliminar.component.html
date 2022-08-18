@@ -1,0 +1,31 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Esta seguro de eliminar este proveedor?</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item>
+                <b>Rut: {{proveedor.rut}}</b>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <b>Nombre: {{proveedor.nombre}}</b>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <b>Telefono: {{proveedor.telefono}}</b>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <b>Página: {{proveedor.pagina}}</b>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+    </mat-card-content>
+    
+    <mat-card-actions>
+        <button mat-flat-button (click)="cancel()">Cancelar</button>
+        <button mat-raised-button color="warn" (click)="confirmar()">Confirmar</button>
+    </mat-card-actions>
+    
+</mat-card>

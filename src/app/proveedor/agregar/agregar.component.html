@@ -1,0 +1,16 @@
+
+n<form [formGroup]="proveedorForm" (ngSubmit) = "onSubmit()">        
+    <mat-form-field class="crear-proveedor-field">
+        <input matInput placeholder = "Rut del proveedor" formControlName="rut">    
+    </mat-form-field>
+    <mat-form-field class="crear-proveedor-field">
+        <input matInput placeholder = "Nombre del proveedor" formControlName="nombre">    
+    </mat-form-field>
+    <mat-form-field class="crear-proveedor-field">
+        <input matInput placeholder = "Teléfono del proveedor" formControlName="telefono">    
+    </mat-form-field>
+    <mat-form-field class="crear-proveedor-field">
+        <input matInput placeholder = "Pagina web del proveedor" formControlName="pagina">    
+    </mat-form-field>
+    <button mat-raised-button [disabled] = "!proveedorForm.valid" on>Crear Nuevo</button>
+</form>

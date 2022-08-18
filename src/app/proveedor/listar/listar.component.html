@@ -1,0 +1,39 @@
+<button mat-raised-button color="accent" mat-button routerLink="/proveedor/agregar">Agregar Proveedor</button>
+
+<table mat-table [dataSource]="resultados" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="rut">
+        <th mat-header-cell *matHeaderCellDef> RUT. </th>
+        <td mat-cell *matCellDef="let element"> {{element.rut}} </td>
+    </ng-container>
+      
+    <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> NOMBRE </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="telefono">
+        <th mat-header-cell *matHeaderCellDef> TELEFONO </th>
+        <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="pagina">
+        <th mat-header-cell *matHeaderCellDef> PAGINA </th>
+        <td mat-cell *matCellDef="let element"> {{element.pagina}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="accion">
+        <th mat-header-cell *matHeaderCellDef> ACCI&Oacute;N</th>
+        <td mat-cell *matCellDef="let element"> 
+          <button (click)="actualizarProveedor(element)"  mat-raised-button color="primary"><mat-icon>edit</mat-icon></button> 
+          <button [routerLink]="['/proveedor/eliminar', element.id]"  mat-raised-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+        </td>
+      </ng-container>
+      
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -1,0 +1,25 @@
+<mat-card>
+    <span>Crear Nuevo Venta</span>
+    <form [formGroup]="VentaForm" (ngSubmit) = "onSubmit()">
+        <mat-form-field class="crear-cliente-field">
+            <input matInput placeholder = "FechaVenta" formControlName="fechaVenta">    
+        </mat-form-field>
+        <mat-form-field class="crear-cliente-field">
+            <mat-select placeholder = "Cliente para la venta" formControlName="cliente">
+                <mat-option *ngFor="let item of resultadosClientes" [value]="item.id">{{item.nombre}} {{item.apellido}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="crear-cliente-field">
+            <mat-select placeholder = "Producto a vender" formControlName="producto">
+                <mat-option *ngFor="let item of resultadosProductos" [value]="item.id">{{item.nombre}} </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="crear-cliente-field">
+            <input matInput placeholder = "Descuento de la venta" formControlName="descuento">    
+        </mat-form-field>
+        <mat-form-field class="crear-cliente-field">
+            <input matInput placeholder = "Total de la venta" formControlName="total">    
+        </mat-form-field>
+        <button mat-raised-button [disabled] = "!VentaForm.valid" on>Crear Nuevo</button>
+    </form>
+</mat-card> 

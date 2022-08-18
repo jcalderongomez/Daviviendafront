@@ -1,0 +1,27 @@
+<div class="center-content">
+    <mat-card>
+        <span>CREAR NUEVO PRODUCTO</span>
+        <form [formGroup]="productoForm" (ngSubmit) = "onSubmit()">
+            <mat-form-field>
+                <input matInput placeholder = "Nombre del producto" class="form-control" formControlName="nombre">    
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput placeholder = "Precio del producto" class="form-control"  formControlName="precio">    
+            </mat-form-field>
+            <br>
+            <mat-form-field class="crear-producto-field">
+                <input matInput placeholder = "Stock del producto"  class="form-control" formControlName="stock">    
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Seleccione el proveedor</mat-label>
+                <mat-select formControlName="proveedorId"  class="form-control">
+                    <mat-option *ngFor="let item of resultados" [value]="item.id">{{item.nombre}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <button mat-raised-button [disabled] = "!productoForm.valid" on>Crear Nuevo</button>
+        </form>
+    </mat-card> 
+</div>
